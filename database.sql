@@ -20,8 +20,10 @@ CREATE TABLE events(
 	address	 VARCHAR(30),
 	city VARCHAR(30),
 	state VARCHAR(2),
+	c_name VARCHAR(100),
 	c_phone CHAR(14),
 	c_email CHAR(50),
+	description VARCHAR(300),
 	capacity INTEGER,
 	PRIMARY KEY(event_id)
 );	

@@ -1,0 +1,13 @@
+Home page(register, sign in)
+	Register redirects to home
+	Signin redirects to user or admin
+		User page lists events, my account
+			Events lists title, date, time, capacity
+				event page lists it again with more details
+			My account lists my information
+				Past events
+				Current
+		Admin page 
+			Lists events, has a checkbox to delete current events
+			Has a button to create new event
+				It's a form page

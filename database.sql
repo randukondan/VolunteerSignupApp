@@ -6,7 +6,7 @@ CREATE TABLE users(
 	city VARCHAR(30),
 	state VARCHAR(2),
 	phone CHAR(14),
-	email CHAR(50),
+	email VARCHAR(50),
 	is_admin BOOLEAN,
 	PRIMARY KEY(user_id)
 );	
@@ -14,17 +14,17 @@ CREATE TABLE users(
 CREATE TABLE events(
 	event_id INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
 	title VARCHAR(30),
-	date_of DATE,
-	start_time TIME,
-	end_time TIME,
+	date_of VARCHAR(20),
+	start_time VARCHAR(5),
+	end_time VARCHAR(5),
 	address	 VARCHAR(30),
 	city VARCHAR(30),
 	state VARCHAR(2),
-	c_name VARCHAR(100),
-	c_phone CHAR(14),
-	c_email CHAR(50),
 	description VARCHAR(300),
 	capacity INTEGER,
+	c_name VARCHAR(100),
+	c_phone CHAR(14),
+	c_email VARCHAR(50),
 	PRIMARY KEY(event_id)
 );	
 

@@ -11,6 +11,13 @@ CREATE TABLE users(
 	PRIMARY KEY(user_id)
 );	
 
+CREATE TABLE passwords(
+	user_id INTEGER,
+	password VARCHAR(100),
+	PRIMARY KEY(user_id),
+	FOREIGN KEY(user_id) REFERENCES users (user_id)
+);
+
 CREATE TABLE events(
 	event_id INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
 	title VARCHAR(30),

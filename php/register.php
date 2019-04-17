@@ -1,7 +1,6 @@
 <?php
 	$fname = $lname = $address = $city = $state = $phone = $email = $password = "";
 	$fnameerr = $lnameerr = $aderr = $cityerr = $stateerr = $phoneerr = $emailerr = $passerr = "";
-	//echo '<script>console.log("made it to php")</script>';
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{		
@@ -88,6 +87,7 @@
 			$email = $_POST["email"];
 			if (filter_var($email, FILTER_VALIDATE_EMAIL)) 
 			{
+				//not entering a full text with @something.com will return false and not register
 				setcookie('email', $email);
 			}
 			else 
@@ -114,6 +114,14 @@
 		
 		if ($fnameerr=="" && $lnameerr=="" && $aderr=="" && $cityerr=="" && $stateerr=="" && $phoneerr=="" && $emailerr=="" && $passerr=="")
 		{
+			$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
+			// Check connection
+			if (!$conn) 
+			{
+				die("Connection failed: " . mysqli_connect_error());
+			} 
+			$query = "INSERT INTO users VALUES (NULL,'$fname','$lname','$address','$city','$state','$phone','$email',FALSE);";
+			mysqli_query($conn,$query);
 			header('Location: ../html/successregister.html');
 		}
 	}

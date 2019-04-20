@@ -1,5 +1,6 @@
 <!-- doesn't do anything yet -->
 <?php
+	session_start();
 	$email = $password = "";
 	$emailerr = $passerr = "";
 	if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -36,6 +37,8 @@
 				$e = $row["email"];
 				$p = $row["password"];
 				$a = $row["is_admin"];
+				$_SESSION["email"] = $e;
+				$_SESSION["isadmin"] = $a;
 
 				if ($a == "0")
 				{	
@@ -43,7 +46,7 @@
 				}
 				else if ($a == "1")
 				{
-				header('Location: ../html/homeadmin.html');
+				header('Location: ../php/homeadmin.php');
 				}
 			}
 

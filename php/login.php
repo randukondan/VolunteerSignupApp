@@ -28,23 +28,30 @@
 		{
 			$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 			if (!$conn) {die("Connection failed: " . mysqli_connect_error());} 
-			$query = "SELECT email, password, is_admin FROM users; WHERE email = '$email' AND password = '$password';";
+			$query = "SELECT email, password, is_admin FROM users WHERE email = '$email' AND password = '$password';";
 			$result = mysqli_query($conn,$query);
-			while($row = mysqli_fetch_array($result)) 
+			$row = mysqli_fetch_array($result);
+			if($row) 
 			{
 				$e = $row["email"];
 				$p = $row["password"];
 				$a = $row["is_admin"];
+
+				if ($a == "0")
+				{	
+				header('Location: ../html/homeuser.html');
+				}
+				else if ($a == "1")
+				{
+				header('Location: ../html/homeadmin.html');
+				}
 			}
 
-			if ($a == FALSE)
-			{	
-				header('Location: ../html/homeuser.html');
+			else{
+				header('Location: ../html/login.html');
 			}
-			// else if ($a == TRUE)
-			// {
-			// 	header('Location: ../html/homeadmin.html');
-			// }
+			
+			
 		}
 	}
 ?>		

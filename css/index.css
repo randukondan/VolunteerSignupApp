@@ -1,0 +1,44 @@
+nav{
+	background-color:#C75B12;
+}
+
+h6{
+	font-weight:bold;
+}
+
+footer{
+	background-color: #008542; 
+	color:white; 
+	padding:10px;
+	text-align:center;
+}
+
+.links{
+	text-decoration: underline;
+}
+
+.centered{
+	text-align:center;
+}
+
+.pmargin{
+	margin-bottom:100px
+}
+.round{
+	border-radius: 25px;
+	height:150px;
+	width:150px;
+ }
+
+.col-sm-2{
+	background-color: lightgrey;
+	padding-top:10px;
+ }
+
+.photo{
+	float:left;
+	width:273.6px;
+	height:182.4px;
+	padding-right:10px;
+	border-radius: 25px;
+}

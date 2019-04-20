@@ -14,4 +14,6 @@ INSERT INTO users VALUES (NULL,'Jon','Jones','111 Allgood', 'Atlanta', 'GA','972
 INSERT INTO users VALUES (NULL,'Ahmad','Jabbar','980 Dallas', 'Houston', 'TX','972-886-3147','test@email.com',NULL, FALSE); 
 INSERT INTO users VALUES (NULL,'Joyce','English','5631 Rice', 'Houston', 'TX','972-886-3147','test@email.com',NULL, FALSE); 
 INSERT INTO users VALUES (NULL,'Ramesh','Narayan','971 Fire Oak', 'Humble', 'TX','972-886-3147','test@email.com',NULL, FALSE); 
-INSERT INTO users VALUES (NULL,'Alicia','Zelaya','3321 Castle', 'Spring', 'TX','972-886-3147','test@email.com',NULL, FALSE); 
+INSERT INTO users VALUES (NULL,'Alicia','Zelaya','3321 Castle', 'Spring', 'TX','972-886-3147','test@email.com',NULL, FALSE);
+
+INSERT INTO users VALUES (NULL,'Brandon','Armstrong','3321 Riverside', 'Austin', 'TX','972-886-3147','test2@email.com','abcd123', FALSE); 

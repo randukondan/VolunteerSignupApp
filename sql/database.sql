@@ -33,6 +33,6 @@ CREATE TABLE is_registered(
 	event_id INTEGER,
 	user_id INTEGER,
 	PRIMARY KEY(event_id,user_id),
-	FOREIGN KEY(event_id) REFERENCES events (event_id) ON DELETE CASCADE, --I believe this is how it needs to be written
+	FOREIGN KEY(event_id) REFERENCES events (event_id) ON DELETE CASCADE,
 	FOREIGN KEY(user_id) REFERENCES users (user_id)
 );

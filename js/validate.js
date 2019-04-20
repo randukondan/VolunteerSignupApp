@@ -107,7 +107,7 @@ $(document).ready(function()
 		} 
 		else if($("#address").val() != "") 
 		{
-			var letters = /^[0-9a-zA-Z]+$/;
+			var letters = /[a-z\d\-_\s]+/i;
 			var entry = $("#address").val();
 			if(letters.test(entry)) //test() returns true if it matches
 			{

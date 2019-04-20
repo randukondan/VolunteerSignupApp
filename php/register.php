@@ -120,7 +120,7 @@
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
-			$query = "INSERT INTO users VALUES (NULL,'$fname','$lname','$address','$city','$state','$phone','$email',FALSE);";
+			$query = "INSERT INTO users VALUES (NULL,'$fname','$lname','$address','$city','$state','$phone','$email', '$password', FALSE);";
 			mysqli_query($conn,$query);
 			header('Location: ../html/successregister.html');
 		}

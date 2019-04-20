@@ -1,4 +1,3 @@
-<!-- doesn't do anything yet -->
 <?php
 	session_start();
 	$email = $password = "";

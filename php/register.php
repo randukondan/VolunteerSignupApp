@@ -111,6 +111,7 @@
 				header('Location: ../html/register.html'); 
 			}
 		}
+		$password = password_hash ($password ,PASSWORD_DEFAULT );
 		
 		if ($fnameerr=="" && $lnameerr=="" && $aderr=="" && $cityerr=="" && $stateerr=="" && $phoneerr=="" && $emailerr=="" && $passerr=="")
 		{

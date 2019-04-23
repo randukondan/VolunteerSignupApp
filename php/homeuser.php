@@ -13,8 +13,16 @@
 </head>
 
 <body>
-	<h1>Hello!</h1>
-	<p>Welcome back.</p>
+	<?php
+		$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
+		if (!$conn) {die("Connection failed: " . mysqli_connect_error());} 
+		$queryname = "SELECT first_name, last_name FROM users WHERE email = \"".$_SESSION["User"]."\";";
+		$result = mysqli_query($conn,$queryname);
+		$row = mysqli_fetch_array($result);
+		$fname = $row['first_name'];
+		$lname = $row['last_name'];
+		echo "<h3>Hi there, ".$fname." ".$lname."!</h3> <br><h4>Welcome back!</h4>";
+	?>
 	<p>Look at the available events or look at your past events.</p>
 	<a href="./userhistory.php"><button type="button">My Events</button></a> 
 	<a href="./eventdetails.php"><button type="button">View Events</button></a>

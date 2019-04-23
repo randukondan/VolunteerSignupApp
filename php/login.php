@@ -54,7 +54,7 @@
 			{
 				header('Location: ../html/login.html');
 			}
-			
+			mysqli_close($conn);	
 		}
 	}
 ?>	

@@ -35,10 +35,10 @@
 	<hr/>
 	<p>Enter event ID to delete it</p>
 	<form method="post" action="./delete.php">	
-		ID: <input type="text" name="e_id" id="e_id"> </br>
+		ID: <input type="text" name="e_id" id="e_id">  
 		<input type="submit" value="Delete Event"/>
 	</form>
-	<br/>
+	</br>
 	<a href="./addeventform.php"><button type="button">Add event</button></a>
 	<a href="./logout.php"><button type="button">Logout</button></a> 
 </body>

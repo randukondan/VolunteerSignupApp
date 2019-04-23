@@ -43,7 +43,7 @@
 				}
 				if ($a == "0")
 				{	
-					header('Location: ../html/homeuser.html');
+					header('Location: ../php/homeuser.php');
 				}
 				else if ($a == "1")
 				{

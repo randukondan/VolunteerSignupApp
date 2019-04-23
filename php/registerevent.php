@@ -33,7 +33,7 @@
 		$result = mysqli_query($conn,$query);
 
 		if($result->num_rows > 0){
-			echo "You have already registered for this event. Thank you.";
+			echo "You have already registered for this event. Thank you.</br>";
 		}
 		else{
 			$queryreg = "INSERT INTO is_registered values ('$eventid', (SELECT user_id FROM users WHERE email = '$email') );";
@@ -41,7 +41,7 @@
 
 			if ($result2) 
 			{
-			    echo "You have successfully registered for the event";
+			    echo "You have successfully registered for the event.</br>";
 			    //header('Location: ../php/homeadmin.php');
 			} 
 			else 
@@ -62,6 +62,7 @@
 
 <body>
 </br>
-	<a href="./eventdetails.php"><button type="button">Go back</button></a> 
+	<a href="./eventdetails.php"><button type="button">Register for more events</button></a> 
+	<a href="./homeuser.php"><button type="button">Back to homepage</button></a>
 </body>
 </html>

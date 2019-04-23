@@ -31,6 +31,7 @@
 			echo "<tr><td>".$row['event_id']."</td><td>".$row['title']."</td></tr>";
 		}
 		echo "</table>";
+		mysqli_close($conn);
 	?>
 	<hr/>
 	<p>Enter event ID to delete it</p>

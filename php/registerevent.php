@@ -13,7 +13,7 @@
 		if(empty($_POST["eventid"]))
 		{
 			$terror = "error";
-			header('Location: ./addeventform.php');   
+			header('Location: ./eventdetails.php');   
 		}
 		else
 		{

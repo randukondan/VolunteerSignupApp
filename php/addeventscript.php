@@ -5,7 +5,7 @@
 		header('Location: ./logout.php');
 	}
 	$title = $dateof = $starttime = $endtime = $address = $city = $state = $description = $cname = $cphone = $cemail = "";
-	$terror = $dayerror = $starterror = $enderror = $addresserr = $cityerr = $stateerr = $descerr = $nameerr = $phoneerr = $emailerr "";
+	$terror = $dayerror = $starterror = $enderror = $addresserr = $cityerr = $stateerr = $descerr = $capacity = $nameerr = $phoneerr = $emailerr = "";
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{		
@@ -97,6 +97,17 @@
 			$description = $_POST["description"];
 		}
 
+		//capacity
+		if(empty($_POST["capacity"]))
+		{
+			$descerr = "error";
+			header('Location: ./addeventform.php');    
+		}
+		else
+		{
+			$capacity = $_POST["capacity"];
+		}
+
 		//name
 		if(empty($_POST["cname"]))
 		{
@@ -147,7 +158,7 @@
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
-			$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description','$cname','$cphone','$cemail');";
+			$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail');";
 			$result = mysqli_query($conn,$query);
 			if ($result) 
 			{

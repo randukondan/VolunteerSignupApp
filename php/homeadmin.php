@@ -27,22 +27,16 @@
 		echo "<h4>Current events on the system:</h4>";
 
 		echo "<form method = \"post\" action = \"./delete.php\">";
-		echo "<table style = 'text-align:center'><tr><th>ID</th><th>Name</th></tr>";
+		echo "<table style = 'text-align:center'><tr><th></th><th>Name</th></tr>";
 		while($row=mysqli_fetch_array($result))
 		{
-			echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">".$row['event_id']."</td><td>".$row['title']."</td></tr>";
+			echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">"."</td><td>".$row['title']."</td></tr>";
 		}
 		echo "</table>";
 		echo "<input type=\"submit\" name=\"delete\" value=\"Delete\">";
 		echo "<input type=\"submit\" name=\"edit\" value=\"Edit\"></form>";
 		mysqli_close($conn);
 	?>
-	<hr/>
-	<p>Enter event ID to delete it</p>
-	<form method="post" action="./delete.php">	
-		ID: <input type="text" name="e_id" id="e_id">  
-		<input type="submit" value="Delete Event"/>
-	</form>
 	</br>
 	<a href="./addeventform.php"><button type="button">Add event</button></a>
 	<a href="./logout.php"><button type="button">Logout</button></a> 

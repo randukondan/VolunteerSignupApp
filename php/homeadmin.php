@@ -24,13 +24,17 @@
 		echo "<h3>Hi there, ".$fname." ".$lname." welcome!</h3> <br><h4>You have logged in as an Admin.</h4>";
 		$queryevents = "SELECT * from events WHERE end_time >= NOW();";
 		$result = mysqli_query($conn, $queryevents);
-		echo "<h4>Current events:</h4>";
+		echo "<h4>Current events on the system:</h4>";
+
+		echo "<form method = \"post\" action = \"./delete.php\">";
 		echo "<table style = 'text-align:center'><tr><th>ID</th><th>Name</th></tr>";
 		while($row=mysqli_fetch_array($result))
 		{
-			echo "<tr><td>".$row['event_id']."</td><td>".$row['title']."</td></tr>";
+			echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">".$row['event_id']."</td><td>".$row['title']."</td></tr>";
 		}
 		echo "</table>";
+		echo "<input type=\"submit\" name=\"delete\" value=\"Delete\">";
+		echo "<input type=\"submit\" name=\"edit\" value=\"Edit\"></form>";
 		mysqli_close($conn);
 	?>
 	<hr/>

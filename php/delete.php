@@ -1,24 +1,41 @@
 <?php
 	session_start();
-	if($_SESSION["Admin"] == 0){
+	if($_SESSION["Admin"] == 0)
+	{
 		header('Location: ./logout.php');
 	}
 	$e_id = "";
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{		
-		$e_id = $_POST["e_id"];
+		if(empty($_POST["eventid"]))
+		{
+			$terror = "error";
+			header('Location: ./homeadmin.php');   
+		}
+		else
+		{
+			$e_id = $_POST["eventid"];
+			//echo $eventid;
+		}
 		$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 		if (!$conn) {die("Connection failed: " . mysqli_connect_error());} 
-		$query = "DELETE FROM events WHERE event_id = '$e_id';";
-		$result = mysqli_query($conn,$query);
-		if ($result) 
+		if($_POST['delete'])
 		{
-		    echo "Event deleted successfully";
-		    //header('Location: ../php/homeadmin.php');
-		} 
-		else 
+			$query = "DELETE FROM events WHERE event_id = '$e_id';";
+			$result = mysqli_query($conn,$query);
+			if ($result) 
+			{
+			    echo "Event deleted successfully";
+			    //header('Location: ../php/homeadmin.php');
+			} 
+			else 
+			{
+			    echo "Error deleting event";
+			}
+		}
+		else if ($_POST['edit'])
 		{
-		    echo "Error deleting record";
+			
 		}
 		mysqli_close($conn);
 	}
@@ -32,6 +49,6 @@
 </head>
 
 <body>
-	<a href="../php/homeadmin.php"><button type="button">Go back</button></a> 
+	<a href="./homeadmin.php"><button type="button">Go back</button></a> 
 </body>
 </html>

@@ -26,14 +26,14 @@
 		$result = mysqli_query($conn, $queryevents);
 		echo "<h4>Current events on the system:</h4>";
 
-		echo "<form method = \"post\" action = \"./delete.php\">";
+		echo "<form method = \"post\" action = \"./modify.php\">";
 		echo "<table style = 'text-align:center'><tr><th></th><th>Name</th></tr>";
 		while($row=mysqli_fetch_array($result))
 		{
 			echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">"."</td><td>".$row['title']."</td></tr>";
 		}
 		echo "</table>";
-		echo "<input type=\"submit\" name=\"delete\" value=\"Delete\">";
+		echo "<input type=\"submit\" name=\"delete\" value=\"Delete\">&nbsp &nbsp &nbsp";
 		echo "<input type=\"submit\" name=\"edit\" value=\"Edit\"></form>";
 		mysqli_close($conn);
 	?>

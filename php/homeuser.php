@@ -24,8 +24,15 @@
 		echo "<h3>Hi there, ".$fname." ".$lname."!</h3> <br><h4>Welcome back!</h4>";
 	?>
 	<p>Look at the available events or look at your past events.</p>
-	<form method="get" action="searchuser.php">
-  		<input type="text" placeholder="Enter search criteria.." name="q">
+	<form method="post" action="searchuser.php">
+  		<input type="text" placeholder="Enter search criteria.." name="query">
+  		<select id="filter" name="filter">
+  			<option value = "NA">--- select a value ---</option>	
+  			<option value = "title">Event title</option>
+  			<option value = "city">Event city</option>
+  			<option value = "description">Event description</option>
+  			<option value = "cname">Event contact name</option>
+  		</select>
   		<button type="submit">Search</button>
 	</form></br>
 	<a href="./userhistory.php"><button type="button">My Events</button></a> 

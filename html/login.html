@@ -2,18 +2,33 @@
 <html>
 <head>
 	<title>Login - Volunteer Sign-Up</title>
+	<link rel="stylesheet" type="text/css" href="../css/login.css" />
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
 	<meta charset="utf-8">
 </head>
 
 <body>
-	<h1>Login</h1>
-	<p>Enter your login information.</p>
-	<form method="post" action="../php/login.php">	
-		Email: <input type="text" name="email" id="email"> </br>
-		Password:<input type="password" name="password" id="password"> </br>
-		<input type="submit" value="Login"/>
-	</form>
-	<a href="./splashhome.html"><button type="button">Go back</button></a> 
+	<header class="headA">
+		Login
+	</header>
+	<div class="login-page">
+	<div class="form">
+		<form method="post" action="../php/login.php" class="login-form">	
+			Email: <input type="text" name="email" id="email"> </br>
+			Password:<input type="password" name="password" id="password"> </br>
+			<button type="submit" value="Login"/>Login</button>
+		</form>
+		</br>
+		<a href="./splashhome.html"><button type="button">Go back</button></a> 
+	</div>
+	</div>
+	<footer class="footC">
+		CS6314.002 - Web Languages
+		<a href="http://validator.w3.org/check/referer">
+		<img src="http://www.w3.org/Icons/valid-xhtml11" alt="Validate" />
+		</a> 
+	</footer>
 </body>
 </html>
 	

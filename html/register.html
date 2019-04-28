@@ -5,50 +5,67 @@
 	<meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="../css/validate.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css" />
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
 	<script src="../js/validate.js"></script>	
 </head>
 
 <body>
-	<h1>Register!</h1>
-	<p>Fill all the fields to register.</p>
-	<form method="post" action="../php/register.php">
-		<table>
-			<tr>
-				<td><label for="fname">First Name:</label></td>
-				<td><input type="text" name="fname" id="fname"></td>
-			</tr>
-			<tr>
-				<td><label for="lname">Last Name:</label></td>
-				<td><input type="text" name="lname" id="lname"></td>
-			</tr>
-			<tr>
-				<td><label for="address">Street Address:</label></td>
-				<td><input type="text" name="address" id="address"></td>
-			</tr>
-			<tr>
-				<td><label for="city">City:</label></td>
-				<td><input type="text" name="city" id="city"></td>
-			</tr>
-			<tr>
-				<td><label for="state">State:</label></td>
-				<td><input type="text" name="state" id="state"></td>
-			</tr>
-			<tr>
-				<td><label for="phone">Phone:</label></td>
-				<td><input type="text" name="phone" id="phone"></td>
-			</tr>
-			<tr>
-				<td><label for="email">Email:</label></td>
-				<td><input type="text" name="email" id="email"></td>
-			</tr>
-			<tr>
-				<td><label for="password">Password:</label></td>
-				<td><input type="password" name="password" id="password"></td>
-			</tr>
-		</table>
-		<input type="submit" value="Register"/>
-	</form>
-	<a href="./splashhome.html"><button type="button">Go back</button></a> 
+	<header class="headA">
+		Register
+	</header>
+	<div class="login-page">
+	<div class="form">
+		<h1>Register!</h1>
+		<p>Fill all the fields to register.</p>
+		<form method="post" action="../php/register.php">
+			<table>
+				<tr>
+					<td><label for="fname">First Name:</label></td>
+					<td><input type="text" name="fname" id="fname"></td>
+				</tr>
+				<tr>
+					<td><label for="lname">Last Name:</label></td>
+					<td><input type="text" name="lname" id="lname"></td>
+				</tr>
+				<tr>
+					<td><label for="address">Street Address:</label></td>
+					<td><input type="text" name="address" id="address"></td>
+				</tr>
+				<tr>
+					<td><label for="city">City:</label></td>
+					<td><input type="text" name="city" id="city"></td>
+				</tr>
+				<tr>
+					<td><label for="state">State:</label></td>
+					<td><input type="text" name="state" id="state"></td>
+				</tr>
+				<tr>
+					<td><label for="phone">Phone:</label></td>
+					<td><input type="text" name="phone" id="phone"></td>
+				</tr>
+				<tr>
+					<td><label for="email">Email:</label></td>
+					<td><input type="text" name="email" id="email"></td>
+				</tr>
+				<tr>
+					<td><label for="password">Password:</label></td>
+					<td><input type="password" name="password" id="password"></td>
+				</tr>
+			</table>
+			<button type="submit" value="Register"/>Register</button>
+		</form>
+		<br/>
+		<a href="./splashhome.html"><button type="button">Go back</button></a> 
+	</div>
+	</div>
+	<footer class="footD">
+		CS6314.002 - Web Languages
+		<a href="http://validator.w3.org/check/referer">
+		<img src="http://www.w3.org/Icons/valid-xhtml11" alt="Validate" />
+		</a> 
+	</footer>
 </body>
 </html>
 	

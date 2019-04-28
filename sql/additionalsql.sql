@@ -23,3 +23,6 @@ UPDATE events SET end_time = "2019-09-16 19:30:00" WHERE event_id = "7";
 UPDATE events SET end_time = "2019-04-21 16:00:00" WHERE event_id = "8";
 UPDATE events SET end_time = "2019-05-17 21:30:00" WHERE event_id = "9";
 UPDATE events SET end_time = "2019-06-12 17:15:00" WHERE event_id = "10";
+
+
+ALTER TABLE `events` ADD `imagename` VARCHAR(50) NULL DEFAULT NULL AFTER `c_email`;

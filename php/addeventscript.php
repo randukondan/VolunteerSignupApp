@@ -7,6 +7,8 @@
 	$title = $dateof = $starttime = $endtime = $address = $city = $state = $description = $cname = $cphone = $cemail = "";
 	$terror = $dayerror = $starterror = $enderror = $addresserr = $cityerr = $stateerr = $descerr = $capacity = $nameerr = $phoneerr = $emailerr = "";
 
+	$filename = "";
+
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	{		
 		//title
@@ -140,19 +142,46 @@
 				header('Location: ./addeventform.php'); 
 			}
 		}
-				
+
+
+		/*file name
+		if(empty($_POST["fileToUpload"]))
+		{
+			header('Location: ./addeventform.php');    
+		}
+		else
+		{
+			$filename = $_POST["fileToUpload"];
+		}
+		*/	
+
+
 		if ($terror=="" && $dayerror=="" && $starterror=="" && $enderror=="" && $addresserr=="" && $cityerr=="" && $stateerr=="" && $descerr=="" && $nameerr=="" && $phoneerr=="" && $emailerr=="")
 		{
+
 			$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 			if (!$conn) 
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
-			$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail');";
+
+			$target_dir = "../images/";
+			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$filenamedb = basename($_FILES["fileToUpload"]["name"]);
+			
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+			// Check if image file is a actual image or fake image
+			if(isset($_POST["submit"])) {
+			    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			}
+
+			move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+			$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail', '$filenamedb');";
 			$result = mysqli_query($conn,$query);
 			if ($result) 
 			{
-			    echo "Event added successfully";
+			    echo "Event added successfully.</br></br>";
 			    //header('Location: ../php/homeadmin.php');
 			} 
 			else 

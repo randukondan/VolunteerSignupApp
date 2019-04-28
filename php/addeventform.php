@@ -15,7 +15,7 @@
 <body>
 	<h1>Add Event</h1>
 	<p>Fill all the fields to add event.</p>
-	<form method="post" action="./addeventscript.php">	
+	<form method="post" action="./addeventscript.php" enctype="multipart/form-data">	
 		Title of the event: <input type="text" name="title" id="title"> </br></br>
 		Start time: <input type="text" name="starttime" id="starttime"></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
 		End time: <input type="text" name="endtime" id="endtie"></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
@@ -80,7 +80,9 @@
 		Contact Name: <input type="text" name="cname" id="cname"> </br></br>
 		Contact Phone: <input type="text" name="cphone" id="cphone"> </br></br>
 		Contact Email:  <input type="text" name="cemail" id="cemail"> </br></br>
-		<input type="submit" value="Add"/>
+
+		Select image to upload:	<input type="file" name="fileToUpload" id="fileToUpload"></br></br>
+		<input type="submit" value="Add event"/>
 	</form>
 	</br><a href="./homeadmin.php"><button type="button">Go back</button></a> 
 </body>

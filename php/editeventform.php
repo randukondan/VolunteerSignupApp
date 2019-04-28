@@ -39,9 +39,8 @@
 <body>
 	<h1>Edit Event</h1>
 	<p>Edit the fields and click save changes.</p>
-	<form method="post" action="./editscript.php">	
+	<form method="post" action="./editscript.php" enctype="multipart/form-data">	
 		Title of the event: <input type="text" name="title" id="title" value = <?php echo"\"$title\""; ?> > </br></br>
-		Date of event: <input type="text" name="dateof" id="dateof" value = <?php echo"\"$dateof\""; ?>></br><i>Eg: 10th May 2019</i></br></br>
 		Start time: <input type="text" name="starttime" id="starttime" value = <?php echo"\"$starttime\""; ?>></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
 		End time: <input type="text" name="endtime" id="endtie" value = <?php echo"\"$endtime\""; ?>></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
 		Street address: <input type="text" name="address" id="address" value = <?php echo"\"$address\""; ?>> </br></br>
@@ -105,6 +104,7 @@
 		Contact Name: <input type="text" name="cname" id="cname" value = <?php echo"\"$cname\""; ?>> </br></br>
 		Contact Phone: <input type="text" name="cphone" id="cphone" value = <?php echo"\"$cphone\""; ?>> </br></br>
 		Contact Email:  <input type="text" name="cemail" id="cemail" value = <?php echo"\"$cemail\""; ?>> </br></br>
+		Select image to upload:	<input type="file" name="fileToUpload" id="fileToUpload"></br></br>
 		<input type="submit" value="Save changes"/>
 	</form>
 	</br><a href="./homeadmin.php"><button type="button">Go back</button></a> 

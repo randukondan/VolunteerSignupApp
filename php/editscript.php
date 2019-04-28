@@ -20,17 +20,6 @@
 			$title = $_POST["title"];
 		}
 
-		//date
-		if(empty($_POST["dateof"]))
-		{
-			$dayerror = "error";
-			header('Location: ./editeventform.php');    
-		}
-		else
-		{
-			$dateof = $_POST["dateof"];
-		}
-
 		//start
 		if(empty($_POST["starttime"]))
 		{
@@ -160,7 +149,20 @@
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
-			$query = "UPDATE events SET title = '$title', date_of = '$dateof', start_time = '$starttime', end_time = '$endtime', address = '$address', city = '$city', state = '$state', description = '$description', capacity = '$capacity', c_name = '$cname', c_phone = '$cphone', c_email = '$cemail' WHERE event_id = '$eventid';";
+
+			$target_dir = "../images/";
+			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$filenamedb = basename($_FILES["fileToUpload"]["name"]);
+			
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+			// Check if image file is a actual image or fake image
+			if(isset($_POST["submit"])) {
+			    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			}
+
+			move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+			$query = "UPDATE events SET title = '$title', date_of = '$dateof', start_time = '$starttime', end_time = '$endtime', address = '$address', city = '$city', state = '$state', description = '$description', capacity = '$capacity', c_name = '$cname', c_phone = '$cphone', c_email = '$cemail', imagename = '$filenamedb' WHERE event_id = '$eventid';";
 			$result = mysqli_query($conn,$query);
 			if ($result) 
 			{

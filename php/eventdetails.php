@@ -20,7 +20,7 @@
 			} 
 
 			//Next step: separate events as past events and upcoming events
-			$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events;";
+			$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events;";
 			$result = mysqli_query($conn,$query);
 
 			echo "<form method = \"post\" action = \"./registerevent.php\">";
@@ -36,6 +36,7 @@
 				echo "<p>".$row['description']."</p>";
 				echo "<p>Available capacity: ".$row['capacity']."</p>";
 				echo "<p>Contact name: ".$row['c_name']."; Contact phone: ".$row['c_phone']."; Contact email: ".$row['c_email']."</p>";
+				echo "<p>Image: <img src=\"../images/".$row['imagename']."\" style=\"width:150px;height:150px;\"></p>";
 				echo "</div></br></br>";
 			}
 			echo "<input type=\"submit\" value=\"Register\"></form>";

@@ -24,8 +24,15 @@
 		echo "<h3>Hi there, ".$fname." ".$lname." welcome!</h3> <br><h4>You have logged in as an Admin.</h4>";
 		$queryevents = "SELECT * from events WHERE end_time >= NOW();";
 		$result = mysqli_query($conn, $queryevents);
-		echo "<form method=\"get\" action=\"searchadmin.php\">
-  		<input type=\"text\" placeholder=\"Enter search criteria..\" name=\"q\">
+		echo "<form method=\"post\" action=\"searchadmin.php\">
+  		<input type=\"text\" placeholder=\"Enter search criteria..\" name=\"query\">
+  		<select id=\"filter\" name=\"filter\">
+  			<option value = \"NA\">--- select a value ---</option>	
+  			<option value = \"title\">Event title</option>
+  			<option value = \"city\">Event city</option>
+  			<option value = \"description\">Event description</option>
+  			<option value = \"cname\">Event contact name</option>
+  		</select>
   		<button type=\"submit\">Search</button>
 	</form></br>";
 		echo "<h4>Current events on the system:</h4>";

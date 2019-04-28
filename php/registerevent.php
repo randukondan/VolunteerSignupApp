@@ -29,6 +29,12 @@
 
 		$email = $_SESSION["User"];
 		//echo "$email";
+		$querycheckcapacity = "SELECT capacity from events where event_id = '$eventid'";
+		$resultcapa = mysqli_query($conn,$querycheckcapacity);
+		$row = mysqli_fetch_array($resultcapa);
+
+		
+
 		$query = "SELECT * from is_registered WHERE event_id = '$eventid' AND user_id IN (SELECT user_id FROM users WHERE email = '$email');";
 		$result = mysqli_query($conn,$query);
 
@@ -36,20 +42,28 @@
 			echo "You have already registered for this event. Thank you.</br>";
 		}
 		else{
-			$queryreg = "INSERT INTO is_registered values ('$eventid', (SELECT user_id FROM users WHERE email = '$email') );";
-			$result2 = mysqli_query($conn, $queryreg);
+			if ($row['capacity']>0){
 
-			if ($result2) 
-			{
-			    echo "You have successfully registered for the event.</br>";
-			    //header('Location: ../php/homeadmin.php');
-			} 
-			else 
-			{
-			    echo "Error registering";
+				$queryreg = "INSERT INTO is_registered values ('$eventid', (SELECT user_id FROM users WHERE email = '$email') );";
+				$result2 = mysqli_query($conn, $queryreg);
+
+				if ($result2) 
+				{
+					$queryupdatecapacity = "UPDATE events SET capacity = capacity - 1 WHERE event_id = \"".$eventid."\";";
+					$result3 = mysqli_query($conn, $queryupdatecapacity);
+				    echo "You have successfully registered for the event.</br>";
+				    //header('Location: ../php/homeadmin.php');
+				} 
+				else 
+				{
+				    echo "Error registering";
+				}
 			}
-			mysqli_close($conn);
+			else{
+				echo "Sorry, the event is currently at full capacity and you cannot register at this time.</br>";
+			}
 		}
+		mysqli_close($conn);
 
 	}
 ?>

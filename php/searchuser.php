@@ -1,26 +1,23 @@
 <?php
 	session_start();
-	// print_r($_SESSION);
 	if(!isset($_SESSION['User'])){
 		header('Location: ../php/logout.php');
 	}
-?>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Event Details - Volunteer Sign-Up</title>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<?php 
-			$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
+
+	$squery = $_GET['q'];
+
+	$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 			if (!$conn) 
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
 
-			//Next step: separate events as past events and upcoming events
-			$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events;";
+			if($_GET['q'] == ''){
+				$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events WHERE end_time >= NOW();";
+			}
+			else{
+				$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events WHERE (title LIKE \"%"."$squery"."%\" OR address LIKE \"%"."$squery"."%\" OR city LIKE \"%"."$squery"."%\" OR state LIKE \"%"."$squery"."%\" OR description LIKE \"%"."$squery"."%\" OR c_name LIKE \"%"."$squery"."%\" OR c_email LIKE \"%"."$squery"."%\" OR c_phone LIKE \"%"."$squery"."%\");";
+			}
 			$result = mysqli_query($conn,$query);
 
 			echo "<form method = \"post\" action = \"./registerevent.php\">";
@@ -34,22 +31,11 @@
 				echo "<h4>".substr($row['start_time'], 11, 5)." hrs to ".substr($row['end_time'], 11, 5)." hrs</h4>";
 				echo "<h4>".$row['address']." ".$row['city']." ".$row['state']."</h4>";
 				echo "<p>".$row['description']."</p>";
-				echo "<p>Available capacity: ".$row['capacity']."</p>";
+				echo "<p>Capacity: ".$row['capacity']."</p>";
 				echo "<p>Contact name: ".$row['c_name']."; Contact phone: ".$row['c_phone']."; Contact email: ".$row['c_email']."</p>";
 				echo "</div></br></br>";
 			}
 			echo "<input type=\"submit\" value=\"Register\"></form>";
 
 			mysqli_close($conn);
-		?>
-	</br>
-		<a href="./homeuser.php"><button type="button">Go Back</button></a>
-		<a href="./logout.php"><button type="button">Logout</button></a> 
-		<div class = "sidenav">
-			<form action="/search.php">
-		      <input type="text" placeholder="Search.." name="search">
-		      <button type="submit">Submit</button>
-		    </form>
-		</div> 
-	</body>
-</html>
+?>

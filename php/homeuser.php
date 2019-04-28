@@ -24,6 +24,10 @@
 		echo "<h3>Hi there, ".$fname." ".$lname."!</h3> <br><h4>Welcome back!</h4>";
 	?>
 	<p>Look at the available events or look at your past events.</p>
+	<form method="get" action="searchuser.php">
+  		<input type="text" placeholder="Enter search criteria.." name="q">
+  		<button type="submit">Search</button>
+	</form></br>
 	<a href="./userhistory.php"><button type="button">My Events</button></a> 
 	<a href="./eventdetails.php"><button type="button">View Events</button></a>
 	<a href="./logout.php"><button type="button">Logout</button></a> 

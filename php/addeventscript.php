@@ -20,16 +20,6 @@
 			$title = $_POST["title"];
 		}
 
-		//date
-		if(empty($_POST["dateof"]))
-		{
-			$dayerror = "error";
-			header('Location: ./addeventform.php');    
-		}
-		else
-		{
-			$dateof = $_POST["dateof"];
-		}
 
 		//start
 		if(empty($_POST["starttime"]))
@@ -181,6 +171,7 @@
 </head>
 
 <body>
-	<a href="./homeadmin.php"><button type="button">Go back</button></a> 
+	<a href="./addeventform.php"><button type="button">Go back</button></a>&nbsp &nbsp &nbsp
+	<a href="./homeadmin.php"><button type="button">Go home</button></a> 
 </body>
 </html>	

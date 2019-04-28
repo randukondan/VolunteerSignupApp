@@ -13,22 +13,25 @@
 	</head>
 	<body>
 		<?php 
-			$conn = mysqli_connect("127.0.0.1", "root", "", "volunteer");
+			$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 			if (!$conn) 
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			} 
+
 			//Next step: separate events as past events and upcoming events
-			$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events WHERE city LIKE '%'$input'%' end_time >= NOW();";
+			$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email FROM events;";
 			$result = mysqli_query($conn,$query);
+
 			echo "<form method = \"post\" action = \"./registerevent.php\">";
+
 			while($row = mysqli_fetch_array($result)) 
 			{
 				echo "<div>";
 				echo "<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">";
 				echo "<h2>".$row['title']."</h2>";
-				echo "<h4>".$row['date_of']."</h4>";
-				echo "<h4>".$row['start_time']." ".$row['end_time']."</h4>";
+				echo "<h4>".date("dS F Y", strtotime(substr($row['start_time'], 0, 10)))."</h4>";
+				echo "<h4>".substr($row['start_time'], 11, 5)." hrs to ".substr($row['end_time'], 11, 5)." hrs</h4>";
 				echo "<h4>".$row['address']." ".$row['city']." ".$row['state']."</h4>";
 				echo "<p>".$row['description']."</p>";
 				echo "<p>Capacity: ".$row['capacity']."</p>";
@@ -36,9 +39,10 @@
 				echo "</div></br></br>";
 			}
 			echo "<input type=\"submit\" value=\"Register\"></form>";
+
 			mysqli_close($conn);
 		?>
-		</br>
+	</br>
 		<a href="./homeuser.php"><button type="button">Go Back</button></a>
 		<a href="./logout.php"><button type="button">Logout</button></a> 
 		<div class = "sidenav">
@@ -46,6 +50,6 @@
 		      <input type="text" placeholder="Search.." name="search">
 		      <button type="submit">Submit</button>
 		    </form>
-		</div>
+		</div> 
 	</body>
 </html>

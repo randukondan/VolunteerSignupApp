@@ -17,7 +17,6 @@
 	<p>Fill all the fields to add event.</p>
 	<form method="post" action="./addeventscript.php">	
 		Title of the event: <input type="text" name="title" id="title"> </br></br>
-		Date of event: <input type="text" name="dateof" id="dateof"></br><i>Eg: 10th May 2019</i></br></br>
 		Start time: <input type="text" name="starttime" id="starttime"></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
 		End time: <input type="text" name="endtime" id="endtie"></br><i>YYYY-MM-DD HH:MM:SS format</i></br></br>
 		Street address: <input type="text" name="address" id="address"> </br></br>

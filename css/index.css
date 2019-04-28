@@ -1,16 +1,66 @@
 nav{
 	background-color:#C75B12;
+	color:white; 
 }
+/*C75B12*/
 
 h6{
 	font-weight:bold;
 }
 
-footer{
-	background-color: #008542; 
+h4{
+	font-weight:bold;
+}
+
+.headA{
+	/*background-color:#C75B12;*/
+	color:white; 
+	background: linear-gradient(to left, #E98300, #C75B12);
+	text-align: center;
+}
+
+.footA{
+	background-color: #C75B12; 
 	color:white; 
 	padding:10px;
 	text-align:center;
+	left:0;
+	bottom:0;
+	position: relative;
+	width: 100%;
+}
+
+.footB{
+	background-color: #C75B12; 
+	color:white; 
+	padding:10px;
+	text-align:center;
+	left:0;
+	bottom:0;
+	position: fixed;
+	width: 100%;
+}
+
+.footC{
+	background: linear-gradient(to left, #E98300, #C75B12);
+	color:white; 
+	padding:10px;
+	text-align:center;
+	left:0;
+	bottom:0;
+	position: fixed;
+	width: 100%;
+}
+
+.footD{
+	background: linear-gradient(to left, #E98300, #C75B12);
+	color:white; 
+	padding:10px;
+	text-align:center;
+	left:0;
+	bottom:0;
+	position: relative;
+	width: 100%;
 }
 
 .links{
@@ -31,9 +81,10 @@ footer{
  }
 
 .col-sm-2{
-	background-color: #D5D2CA ;
+	background-color: #FFFFFF;
 	padding-top:10px;
  }
+ /*D5D2CA*/
 
 .photo{
 	float:left;
@@ -41,4 +92,22 @@ footer{
 	height:182.4px;
 	padding-right:10px;
 	border-radius: 25px;
+}
+
+button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #008542;
+  width: 25%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+button:hover, button:active,button:focus {
+  background: #C75B12;
 }

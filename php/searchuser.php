@@ -36,23 +36,23 @@
 					die("Connection failed: " . mysqli_connect_error());
 				} 
 				if($squery == ''){
-					$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE end_time >= NOW();";
+					$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE end_time >= NOW();";
 					}
 				else{
 					if($filter == 'title'){
-						$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE title LIKE \"%".$squery."%\" AND end_time >= NOW();";
+						$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE title LIKE \"%".$squery."%\" AND end_time >= NOW();";
 					}
 					if($filter == 'city'){
-						$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE city LIKE \"%".$squery."%\" AND end_time >= NOW();";
+						$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE city LIKE \"%".$squery."%\" AND end_time >= NOW();";
 					}
 					if($filter == 'description'){
-						$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE description LIKE \"%".$squery."%\" AND end_time >= NOW();";
+						$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE description LIKE \"%".$squery."%\" AND end_time >= NOW();";
 					}
 					if($filter == 'cname'){
-						$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE c_name LIKE \"%".$squery."%\" AND end_time >= NOW();";
+						$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE c_name LIKE \"%".$squery."%\" AND end_time >= NOW();";
 					}
 					if($filter == 'NA'){
-						$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE (title LIKE \"%"."$squery"."%\" OR address LIKE \"%"."$squery"."%\" OR city LIKE \"%"."$squery"."%\" OR state LIKE \"%"."$squery"."%\" OR description LIKE \"%"."$squery"."%\" OR c_name LIKE \"%"."$squery"."%\" OR c_email LIKE \"%"."$squery"."%\" OR c_phone LIKE \"%"."$squery"."%\") AND end_time >= NOW();";
+						$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE (title LIKE \"%"."$squery"."%\" OR address LIKE \"%"."$squery"."%\" OR city LIKE \"%"."$squery"."%\" OR state LIKE \"%"."$squery"."%\" OR description LIKE \"%"."$squery"."%\" OR c_name LIKE \"%"."$squery"."%\" OR c_email LIKE \"%"."$squery"."%\" OR c_phone LIKE \"%"."$squery"."%\") AND end_time >= NOW();";
 					}
 				}
 				$result = mysqli_query($conn,$query);

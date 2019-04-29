@@ -30,13 +30,13 @@
 			</div>
 			<div class="col-sm-8" style="text-align: center"> <!-- creates big column mid -->
 				<?php 
-					$conn = mysqli_connect("127.0.0.1", "root", "", "volunteer");
+					$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 					if (!$conn) 
 					{
 						die("Connection failed: " . mysqli_connect_error());
 					} 
 					//Next step: separate events as past events and upcoming events
-					$query = "SELECT event_id, title, date_of, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE end_time >= NOW();";
+					$query = "SELECT event_id, title, start_time, end_time, address, city, state, description, capacity, c_name, c_phone, c_email, imagename FROM events WHERE end_time >= NOW();";
 					$result = mysqli_query($conn,$query);
 					echo "<form class= 'form' method = \"post\" action = \"./registerevent.php\">";
 					while($row = mysqli_fetch_array($result)) 
@@ -50,7 +50,7 @@
 						echo "</br>".$row['description']."";
 						echo "</br>Available capacity: ".$row['capacity']."";
 						echo "</br> Contact name: ".$row['c_name']."; Contact phone: ".$row['c_phone']."; Contact email: ".$row['c_email']."";
-						echo "</br>Image: <img src=\"../images/".$row['imagename']."\" style=\"width:150px;height:150px;\"></p>";
+						echo "</br><img src=\"../images/".$row['imagename']."\"  class = \"photo\" ></p>";
 						echo "</div></br></br>";
 					}
 					echo "<button type=\"submit\" value=\"Register\"/>Register</button></form>";

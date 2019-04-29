@@ -171,7 +171,7 @@
 								    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 								}
 								move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-								$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail', '$filenamedb');";
+								$query = "INSERT INTO events VALUES (NULL,'$title','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail', '$filenamedb');";
 								$result = mysqli_query($conn,$query);
 								if ($result) 
 								{

@@ -173,7 +173,7 @@
 							    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 							}
 							move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-							$query = "UPDATE events SET title = '$title', date_of = '$dateof', start_time = '$starttime', end_time = '$endtime', address = '$address', city = '$city', state = '$state', description = '$description', capacity = '$capacity', c_name = '$cname', c_phone = '$cphone', c_email = '$cemail', imagename = '$filenamedb' WHERE event_id = '$eventid';";
+							$query = "UPDATE events SET title = '$title', start_time = '$starttime', end_time = '$endtime', address = '$address', city = '$city', state = '$state', description = '$description', capacity = '$capacity', c_name = '$cname', c_phone = '$cphone', c_email = '$cemail', imagename = '$filenamedb' WHERE event_id = '$eventid';";
 							$result = mysqli_query($conn,$query);
 							if ($result) 
 							{

@@ -28,7 +28,7 @@
 			</div>
 			<div class="col-sm-8" style="text-align: center"> <!-- creates big column mid -->
 				<?php
-					$conn = mysqli_connect("127.0.0.1", "root", "", "volunteer");
+					$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 					if (!$conn) {die("Connection failed: " . mysqli_connect_error());} 
 					$queryname = "SELECT first_name, last_name FROM users WHERE email = \"".$_SESSION["User"]."\";";
 					$result = mysqli_query($conn,$queryname);
@@ -54,7 +54,7 @@
 					echo "<table style = 'text-align:center; margin:1em auto'><tr><th></th><th>Name</th><th>Date</th></tr>";
 					while($row=mysqli_fetch_array($result))
 					{
-						echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">"."</td><td>".$row['title']."</td><td>".date("d-m-Y", strtotime(substr($row['start_time'], 0, 10)))."</td></tr>";
+						echo "<tr><td>"."<input type=\"radio\" name=\"eventid\" value=\"".$row['event_id']."\">"."</td><td>".$row['title']."</td><td>".date("m-d-Y", strtotime(substr($row['start_time'], 0, 10)))."</td></tr>";
 					}
 					echo "</table>";
 					echo "<button type=\"submit\" name=\"delete\" value=\"Delete\">Delete</button> &nbsp &nbsp";

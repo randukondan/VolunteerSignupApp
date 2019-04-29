@@ -6,13 +6,12 @@
 	}
 	$eventid = $_SESSION["eventid"];
 	//echo "$eventid";
-	$conn = mysqli_connect("127.0.0.1", "root", "", "volunteer");
+	$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
 	if (!$conn) {die("Connection failed: " . mysqli_connect_error());} 
 	$query = "SELECT * FROM events WHERE event_id = '$eventid';";
 	$result = mysqli_query($conn,$query);
 	$row=mysqli_fetch_array($result);
-	$title = $row["title"];
-	$dateof = $row["date_of"]; 
+	$title = $row["title"]; 
 	$starttime = $row["start_time"];
 	$endtime = $row["end_time"]; 
 	$address = $row["address"];
@@ -37,7 +36,7 @@
 
 <body>
 	<header class="headA">
-		Edit
+		<h3>Edit</h3>
 	</header>
 	<div class="login-page">
 	<div class="form">

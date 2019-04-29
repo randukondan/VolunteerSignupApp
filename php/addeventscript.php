@@ -155,27 +155,37 @@
 						}
 								
 						if ($terror=="" && $dayerror=="" && $starterror=="" && $enderror=="" && $addresserr=="" && $cityerr=="" && $stateerr=="" && $descerr=="" && $nameerr=="" && $phoneerr=="" && $emailerr=="")
-						{
-							$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
-							if (!$conn) 
 							{
-								die("Connection failed: " . mysqli_connect_error());
-							} 
-							$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail');";
-							$result = mysqli_query($conn,$query);
-							if ($result) 
-							{
-							    echo "Event added successfully";
-							    //header('Location: ../php/homeadmin.php');
-							} 
-							else 
-							{
-							    echo "Error adding record";
+								$conn = mysqli_connect("127.0.0.1", "root", "", "mysql");
+								if (!$conn) 
+								{
+									die("Connection failed: " . mysqli_connect_error());
+								} 
+								$target_dir = "../images/";
+								$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+								$filenamedb = basename($_FILES["fileToUpload"]["name"]);
+								
+								$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+								// Check if image file is a actual image or fake image
+								if(isset($_POST["submit"])) {
+								    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+								}
+								move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+								$query = "INSERT INTO events VALUES (NULL,'$title','$dateof','$starttime','$endtime','$address','$city','$state','$description', '$capacity','$cname','$cphone','$cemail', '$filenamedb');";
+								$result = mysqli_query($conn,$query);
+								if ($result) 
+								{
+								    echo "Event added successfully.</br></br>";
+								    //header('Location: ../php/homeadmin.php');
+								} 
+								else 
+								{
+								    echo "Error adding record";
+								}
+								mysqli_close($conn);
 							}
-							mysqli_close($conn);
 						}
-					}
-				?>	
+					?>	
 				<a href="./addeventform.php"><button type="button">Go back</button></a>&nbsp &nbsp &nbsp
 				<a href="./homeadmin.php"><button type="button">Go home</button></a> 
 			</div>
